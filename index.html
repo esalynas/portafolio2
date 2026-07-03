@@ -281,7 +281,221 @@ background:rgba(255,255,255,.14);
 animation:fade .4s forwards;
 }
 
+/* ===========================
+SIMULACIÓN POWER BI IMMERSIVA
+===========================*/
 
+.pb-card{
+position:relative;
+overflow:hidden;
+padding:28px;
+border-radius:28px;
+background:rgba(18,24,38,.92);
+border:1px solid rgba(255,255,255,.08);
+}
+
+.pb-card:before{
+content:"";
+position:absolute;
+top:-240px;
+left:-240px;
+width:500px;
+height:500px;
+background:
+conic-gradient(
+transparent,
+rgba(111,210,255,.35),
+transparent);
+animation:pbRotate 8s linear infinite;
+}
+
+.pb-card:after{
+content:"";
+position:absolute;
+inset:2px;
+border-radius:26px;
+background:#101722;
+}
+
+.pb-content{
+position:relative;
+z-index:5;
+}
+
+.pb-small{
+font-size:12px;
+letter-spacing:2px;
+color:#84d9ff;
+margin-bottom:8px;
+}
+
+.pb-title{
+font-size:32px;
+font-weight:bold;
+margin-bottom:5px;
+}
+
+.pb-sub{
+color:#8ea4b7;
+margin-bottom:22px;
+}
+
+.pb-score{
+font-size:64px;
+font-weight:bold;
+color:#7fd7ff;
+}
+
+.pb-bar{
+margin-top:16px;
+height:12px;
+border-radius:999px;
+background:#233448;
+overflow:hidden;
+}
+
+.pb-fill{
+height:100%;
+width:0%;
+background:linear-gradient(90deg,#53b8ff,#74ffd4);
+transition:1s;
+}
+
+.pb-radar{
+
+margin:25px auto;
+
+width:170px;
+height:170px;
+
+border-radius:50%;
+
+border:1px solid rgba(127,210,255,.30);
+
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
+
+}
+
+.pb-radar:before{
+
+content:"";
+
+position:absolute;
+
+width:115px;
+height:115px;
+
+border-radius:50%;
+
+border:1px solid rgba(127,210,255,.25);
+
+}
+
+.pb-radar:after{
+
+content:"";
+
+position:absolute;
+
+width:60px;
+height:60px;
+
+border-radius:50%;
+
+border:1px solid rgba(127,210,255,.20);
+
+}
+
+.pb-scan{
+
+position:absolute;
+
+width:3px;
+
+height:82px;
+
+background:#8edbff;
+
+transform-origin:bottom;
+
+animation:scan 2.6s linear infinite;
+
+box-shadow:0 0 20px #8edbff;
+
+}
+
+.pb-spark{
+
+margin-top:20px;
+
+display:flex;
+
+align-items:flex-end;
+
+height:75px;
+
+gap:6px;
+
+}
+
+.pb-spark div{
+
+flex:1;
+
+border-radius:8px 8px 0 0;
+
+background:linear-gradient(#90deff,#35a9ff);
+
+animation:pbPulse 1.4s infinite;
+
+}
+
+.pb-status{
+
+margin-top:25px;
+
+padding:15px;
+
+border-radius:14px;
+
+background:rgba(255,255,255,.05);
+
+}
+
+.pb-footer{
+
+display:flex;
+
+justify-content:space-between;
+
+margin-top:20px;
+
+font-size:13px;
+
+color:#8ea4b7;
+
+}
+
+@keyframes pbRotate{
+100%{
+transform:rotate(360deg);
+}
+}
+
+@keyframes pbPulse{
+0%{height:20%;}
+50%{height:95%;}
+100%{height:35%;}
+}
+
+@keyframes scan{
+100%{
+transform:rotate(360deg);
+}
+}
 
 
 </style>
@@ -580,144 +794,92 @@ onclick="disparar()">
 
 if(type==="powerbi"){
 
-title.innerText="📊 ANALÍTICA Y REPORTERÍA • POWER BI";
+title.innerText="📊 ANALÍTICA Y REPORTERÍA";
 
-log.innerHTML="";
+log.innerHTML=`
 
-const wait=(ms)=>new Promise(r=>setTimeout(r,ms));
+<div class="pb-card">
 
-addLog("[Power BI] Conectando modelo semántico...");
-await wait(900);
+<div class="pb-content">
 
-addLog("[SQL] Consultando Data Warehouse...");
-await wait(900);
+<div class="pb-small">
 
-addLog("[Power Query] Transformando información...");
-await wait(1000);
-
-addLog("[DAX] Calculando indicadores...");
-await wait(1000);
-
-addBlock("Ventas del mes","$ 2.487 Millones");
-await wait(700);
-
-addBlock("Cumplimiento","96.8%");
-await wait(700);
-
-addBlock("Tiempo promedio","18 min");
-await wait(700);
-
-addBlock("Procesos automatizados","41");
-await wait(700);
-
-addBlock("Usuarios activos","328");
-await wait(700);
-
-addLog("✔ Dashboard Ejecutivo generado.");
-await wait(900);
-
-addLog("📈 Actualizando visualizaciones...");
-await wait(900);
-
-log.innerHTML += `
-
-<div style="
-margin-top:25px;
-padding:25px;
-border-radius:20px;
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.08);
-">
-
-<div style="
-font-size:13px;
-letter-spacing:2px;
-color:#9fd9ff;
-margin-bottom:20px;
-">
-POWER BI DASHBOARD
-</div>
-
-<div style="
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:18px;
-">
-
-<div>
-
-<div style="font-size:13px;margin-bottom:8px;">
-Ventas
-</div>
-
-<div style="
-height:120px;
-display:flex;
-align-items:flex-end;
-gap:8px;
-">
-
-<div style="width:20%;height:45%;background:#5cc8ff;border-radius:5px;"></div>
-
-<div style="width:20%;height:65%;background:#5cc8ff;border-radius:5px;"></div>
-
-<div style="width:20%;height:52%;background:#5cc8ff;border-radius:5px;"></div>
-
-<div style="width:20%;height:88%;background:#5cc8ff;border-radius:5px;"></div>
+POWER BI LIVE SIMULATION
 
 </div>
 
-</div>
+<div class="pb-title">
 
-<div>
-
-<div style="font-size:13px;margin-bottom:8px;">
-Cumplimiento
-</div>
-
-<div style="
-width:130px;
-height:130px;
-margin:auto;
-border-radius:50%;
-background:
-conic-gradient(#5cc8ff 0% 92%,
-rgba(255,255,255,.08) 92% 100%);
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:26px;
-font-weight:bold;
-">
-
-92%
+Indicador Operativo
 
 </div>
 
-</div>
+<div class="pb-sub">
+
+Monitoreando procesos en tiempo real...
 
 </div>
 
-<div style="
-margin-top:20px;
-padding:12px;
-background:rgba(92,200,255,.08);
-border-radius:12px;
-font-size:14px;
-">
+<div class="pb-score" id="pbScore">
 
-💡 Insight generado por IA:
+87%
 
-<br><br>
+</div>
 
-La línea de negocio presenta un incremento del
-<strong>18%</strong> respecto al periodo anterior.
+<div class="pb-bar">
+
+<div class="pb-fill" id="pbFill"></div>
+
+</div>
+
+<div class="pb-radar">
+
+<div class="pb-scan"></div>
+
+</div>
+
+<div class="pb-spark">
+
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
+</div>
+
+<div class="pb-status" id="pbStatus">
+
+Inicializando modelo predictivo...
+
+</div>
+
+<div class="pb-footer">
+
+<span id="pbMotor">
+
+Databricks
+
+</span>
+
+<span id="pbHora">
+
+--
+
+</span>
+
+</div>
 
 </div>
 
 </div>
 
 `;
+
+powerBIAnimation();
 
 }
 
@@ -766,7 +928,78 @@ document.getElementById("score").innerText=goles;
 
 }
 
+let pbInterval;
 
+function powerBIAnimation(){
+
+clearInterval(pbInterval);
+
+const estados=[
+
+"Consultando SQL Server...",
+
+"Ejecutando modelo predictivo...",
+
+"Analizando comportamiento histórico...",
+
+"Calculando KPI...",
+
+"Evaluando desviaciones...",
+
+"Actualizando Dashboard...",
+
+"Generando Insights...",
+
+"Modelo validado ✔"
+
+];
+
+const motores=[
+
+"SQL",
+
+"Databricks",
+
+"Power BI",
+
+"Python",
+
+"Machine Learning"
+
+];
+
+let i=0;
+
+pbInterval=setInterval(()=>{
+
+const valor=Math.floor(Math.random()*18)+82;
+
+document.getElementById("pbScore").innerHTML=valor+"%";
+
+document.getElementById("pbFill").style.width=valor+"%";
+
+document.getElementById("pbStatus").innerHTML=estados[i%estados.length];
+
+document.getElementById("pbMotor").innerHTML=motores[i%motores.length];
+
+document.getElementById("pbHora").innerHTML=
+new Date().toLocaleTimeString();
+
+i++;
+
+},1800);
+
+}
+
+const oldClose = closeSim;
+
+closeSim=function(e){
+
+clearInterval(pbInterval);
+
+oldClose(e);
+
+}
 
 function closeSim(e){
     if(e.target.id==="overlay" || e.target.classList.contains("close"))
