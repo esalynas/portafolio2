@@ -449,9 +449,21 @@ border-radius:8px 8px 0 0;
 
 background:linear-gradient(#90deff,#35a9ff);
 
-animation:pbPulse 1.4s infinite;
+transition:.6s;
 
 }
+
+/* Alturas iniciales diferentes */
+
+.pb-spark div:nth-child(1){height:22%;}
+.pb-spark div:nth-child(2){height:48%;}
+.pb-spark div:nth-child(3){height:78%;}
+.pb-spark div:nth-child(4){height:38%;}
+.pb-spark div:nth-child(5){height:90%;}
+.pb-spark div:nth-child(6){height:60%;}
+.pb-spark div:nth-child(7){height:72%;}
+.pb-spark div:nth-child(8){height:30%;}
+
 
 .pb-status{
 
@@ -984,6 +996,14 @@ document.getElementById("pbMotor").innerHTML=motores[i%motores.length];
 
 document.getElementById("pbHora").innerHTML=
 new Date().toLocaleTimeString();
+
+const barras=document.querySelectorAll(".pb-spark div");
+
+barras.forEach(barra=>{
+
+barra.style.height=(20+Math.random()*75)+"%";
+
+});
 
 i++;
 
