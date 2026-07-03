@@ -363,6 +363,20 @@ Construyo soluciones desde datos, automatización y experiencia operativa.
 
 </div>
 
+<div class="card" onclick="run('powerbi')">
+
+<div class="kicker">SIMULACIÓN 05</div>
+
+<h2>Analítica y Reportería</h2>
+
+<p>Power BI + KPIs + Dashboard Ejecutivo</p>
+
+<div class="metric">
+<div>Insights</div>
+<div class="value">LIVE</div>
+</div>
+
+</div>
 
 </div>
 </section>
@@ -561,6 +575,154 @@ onclick="disparar()">
 `;
 
 }
+
+/* ===== POWER BI ===== */
+
+if(type==="powerbi"){
+
+title.innerText="📊 ANALÍTICA Y REPORTERÍA • POWER BI";
+
+log.innerHTML="";
+
+const wait=(ms)=>new Promise(r=>setTimeout(r,ms));
+
+addLog("[Power BI] Conectando modelo semántico...");
+await wait(900);
+
+addLog("[SQL] Consultando Data Warehouse...");
+await wait(900);
+
+addLog("[Power Query] Transformando información...");
+await wait(1000);
+
+addLog("[DAX] Calculando indicadores...");
+await wait(1000);
+
+addBlock("Ventas del mes","$ 2.487 Millones");
+await wait(700);
+
+addBlock("Cumplimiento","96.8%");
+await wait(700);
+
+addBlock("Tiempo promedio","18 min");
+await wait(700);
+
+addBlock("Procesos automatizados","41");
+await wait(700);
+
+addBlock("Usuarios activos","328");
+await wait(700);
+
+addLog("✔ Dashboard Ejecutivo generado.");
+await wait(900);
+
+addLog("📈 Actualizando visualizaciones...");
+await wait(900);
+
+log.innerHTML += `
+
+<div style="
+margin-top:25px;
+padding:25px;
+border-radius:20px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+">
+
+<div style="
+font-size:13px;
+letter-spacing:2px;
+color:#9fd9ff;
+margin-bottom:20px;
+">
+POWER BI DASHBOARD
+</div>
+
+<div style="
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:18px;
+">
+
+<div>
+
+<div style="font-size:13px;margin-bottom:8px;">
+Ventas
+</div>
+
+<div style="
+height:120px;
+display:flex;
+align-items:flex-end;
+gap:8px;
+">
+
+<div style="width:20%;height:45%;background:#5cc8ff;border-radius:5px;"></div>
+
+<div style="width:20%;height:65%;background:#5cc8ff;border-radius:5px;"></div>
+
+<div style="width:20%;height:52%;background:#5cc8ff;border-radius:5px;"></div>
+
+<div style="width:20%;height:88%;background:#5cc8ff;border-radius:5px;"></div>
+
+</div>
+
+</div>
+
+<div>
+
+<div style="font-size:13px;margin-bottom:8px;">
+Cumplimiento
+</div>
+
+<div style="
+width:130px;
+height:130px;
+margin:auto;
+border-radius:50%;
+background:
+conic-gradient(#5cc8ff 0% 92%,
+rgba(255,255,255,.08) 92% 100%);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:26px;
+font-weight:bold;
+">
+
+92%
+
+</div>
+
+</div>
+
+</div>
+
+<div style="
+margin-top:20px;
+padding:12px;
+background:rgba(92,200,255,.08);
+border-radius:12px;
+font-size:14px;
+">
+
+💡 Insight generado por IA:
+
+<br><br>
+
+La línea de negocio presenta un incremento del
+<strong>18%</strong> respecto al periodo anterior.
+
+</div>
+
+</div>
+
+`;
+
+}
+
+
+
 
 }
 
